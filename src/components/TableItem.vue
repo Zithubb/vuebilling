@@ -32,7 +32,7 @@ export default {
         Save() {
             this.edit = false
             this.$emit('table-item-changed', {
-                original: this.raktar,
+                original: this.table,
                 new: {
                     title: this.title,
                     price:this.price,
