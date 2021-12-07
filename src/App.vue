@@ -37,6 +37,23 @@ export default {
         },
       ]
     }
+  },
+  methods:{
+      Changed(e) {
+      this.tables.map(function (table) {
+        if (table.title != e.original.title) {
+          return table
+        }
+        table.title = e.new.title
+        return table
+      })
+    },
+    Post(e){
+      this.tables.push(e.new)
+    },
+    Delete(e){
+      this.tables.splice(this.rows.indexOf(e.original), 1);
+    }
   }
 }
 </script>

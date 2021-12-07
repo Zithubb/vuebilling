@@ -4,6 +4,7 @@
             <td v-if="!edit"> {{price}} </td>
             <td v-if="!edit"> {{quantity}} </td>
             <td v-if="!edit"> <button @click="Delete">X</button><button @click="Edit">Edit</button> </td>
+            <td v-if="!edit">{{quantity*price}}</td>
         
             <td v-if="edit"><input type="text" v-model="title"></td>
             <td v-if="edit"><input type="number" v-model="price"></td>
@@ -21,7 +22,6 @@ export default {
             title: this.table.title,
             price: this.table.price,
             quantity: this.table.quantity,
-            key:"index",
             edit: false,
         }
     },
@@ -48,6 +48,11 @@ export default {
                 new: {
                     quantity: this.quantity
                 },
+            })
+        },
+        Delete(){
+            this.$emit('table-item-delete',{
+                original:this.table
             })
         }
     }

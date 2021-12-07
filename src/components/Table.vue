@@ -7,6 +7,7 @@
                 <th>Ár</th>
                 <th>Darabszám</th>
                 <th>Operations</th>
+                <th>Összérték</th>
             </tr>
          </thead>
          <tbody>
@@ -14,8 +15,8 @@
                v-for="table in tables"
                v-bind:key="table.title"
                :table="table"
-               @selected-table-changed="Changed"
-               @selected-item-delete="Delete"
+               @table-item-changed="Changed"
+               @table-item-delete="Delete"
                />
             <tr>
                <td><input type="text" v-model="title"></td>
@@ -35,12 +36,10 @@
       components: {TableItem},
       methods: {
          Changed(e) {
-            this.$emit("selected-title-changed", e)
-            this.$emit("selected-prive-changed", e)
-            this.$emit("selected-quantity-changed", e)
+               this.$emit('table-item-changed', e)
          },
          Delete(e){
-               this.$emit('raktar-item-delete', e)
+               this.$emit('table-item-delete', e)
          },
          Post(){
             this.$emit('table-item-post', {
