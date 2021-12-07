@@ -1,21 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Table :tables="tables" @selected-table-changed="Changed"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Table from './components/Table.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Table
   },
   data() {
     return {
-      rows: [
+      tables: [
         {
           title: 'Kerék',
           price: 100,
