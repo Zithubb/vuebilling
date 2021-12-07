@@ -31,23 +31,13 @@ export default {
         },
         Save() {
             this.edit = false
-            this.$emit("selected-title-changed", {
-                original: this.table,
+            this.$emit('table-item-changed', {
+                original: this.raktar,
                 new: {
-                    title: this.title
-                },
-            }),
-            this.$emit("selected-price-changed", {
-                original: this.table,
-                new: {
-                    price: this.price
-                },
-            })
-            this.$emit("selected-quantity-changed", {
-                original: this.table,
-                new: {
-                    quantity: this.quantity
-                },
+                    title: this.title,
+                    price:this.price,
+                    quantity:this.quantity
+                    },
             })
         },
         Delete(){

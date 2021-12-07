@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Table :tables="tables" @selected-table-changed="Changed"/>
+    <Table :tables="tables" @table-item-changed="Changed" @table-item-delete="Delete" @table-item-post="Post"/>
   </div>
 </template>
 
@@ -52,7 +52,7 @@ export default {
       this.tables.push(e.new)
     },
     Delete(e){
-      this.tables.splice(this.rows.indexOf(e.original), 1);
+      this.tables.splice(this.tables.indexOf(e.original), 1);
     }
   }
 }
