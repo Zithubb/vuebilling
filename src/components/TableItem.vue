@@ -1,20 +1,16 @@
 <template>  
-  <table>
-      <div v-if="!edit">
-            <tr>
-                <td> {{title}} </td>
-                <td> {{price}} </td>
-                <td> {{quantity}} </td>
-                <td> <button @click="Edit">X</button><button @click="Edit">Edit</button> </td>
-            </tr>
-      </div>
-      <div v-if="edit">
-        <input type="text" v-model="title">
-        <input type="number" v-model="price">
-        <input type="number" v-model="quantity">
-        <button @click="Save">Save</button>
-      </div>
-  </table>
+        <tr>
+            <td v-if="!edit"> {{title}} </td>
+            <td v-if="!edit"> {{price}} </td>
+            <td v-if="!edit"> {{quantity}} </td>
+            <td v-if="!edit"> <button @click="Delete">X</button><button @click="Edit">Edit</button> </td>
+        
+            <td v-if="edit"><input type="text" v-model="title"></td>
+            <td v-if="edit"><input type="number" v-model="price"></td>
+            <td v-if="edit"><input type="number" v-model="quantity"></td>
+            <td v-if="edit"><button @click="Save">Save</button></td>
+            
+        </tr>
 </template>
 
 <script>
@@ -25,6 +21,7 @@ export default {
             title: this.table.title,
             price: this.table.price,
             quantity: this.table.quantity,
+            key:"index",
             edit: false,
         }
     },
